@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>My Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+        
+        nav ul {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        nav ul li {
+            margin-right: 20px;
+        }
+        
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #f2f2f2;
+        }
+        
+        .hero {
+            background-image: url('/images/mainImage.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero h1 {
+            font-size: 72px;
+            color: #ffffff;
+            text-shadow: 2px 2px #000000;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            color: #ffffff;
+            text-shadow: 2px 2px #000000;
+            margin-bottom: 40px;
+        }
+        
+        .btn {
+            background-color: #ffffff;
+            color: #1a1a1a;
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+        }
+        
+        .about {
+            padding: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+        
+        .about img {
+            width: 40%;
+            height: auto;
+            margin-right: 40px;
+        }
+        
+        .about h2 {
+            font-size: 48px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .about p {
+            font-size: 24px;
+            color: #555555;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+        
+        .work {
+            padding: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f2f2f2;
+        }
+        
+        .work h2 {
+            font-size: 48px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .work-item {
+            width: 30%;
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .work-item:hover {
+            transform: scale(1.05);
+            box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .work-item img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .work-item h3 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: 0;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #ffffff;
+            font-size: 24px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        
+        .work-item:hover h3 {
+            opacity: 1;
+            transform: translateY(0%);
+        }
+        
+        .contact {
+            padding: 80px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff;
+        }
+        
+        .contact h2 {
+            font-size: 48px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+        }
+        
+        .contact p {
+            font-size: 24px;
+            color: #555555;
+            line-height: 1.5;
+            margin-bottom: 40px;
+        }
+        
+        .contact-form {
+            width: 40%;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+        
+        .contact-form button {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: none;
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-form button:hover {
+            background-color: #f2f2f2;
+            color: #1a1a1a;
+        }
+        
+        @media (max-width: 768px) {
+            .about {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                padding: 40px;
+            }
+            .about img {
+                width: 60%;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            .work {
+                padding: 40px;
+            }
+            .work-item {
+                width: 45%;
+            }
+            .contact {
+                padding: 40px;
+            }
+            .contact-form {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .about {
+                padding: 40px;
+            }
+            .about img {
+                width: 100%;
+                margin-right: 0;
+                margin-bottom: 40px;
+            }
+            .work {
+                padding: 40px;
+            }
+            .work-item {
+                width: 100%;
+            }
+            .contact {
+                padding: 40px;
+            }
+            .contact-form {
+                width: 100%;
+            }
+        }
+    </style>
+
+    <body>
+        <!-- Header -->
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container">
+                    <a class="navbar-brand" href="#">My Portfolio</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#work">Work</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <!-- About -->
+        <section class="about" id="about">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <img src="/images/mainImage.jpg" alt="about">
+                    </div>
+                    <div class="col-lg-6">
+                        <h2>About Me</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare dui. Nam auctor, justo ac commodo commodo, quam quam consequat enim, nec sagittis sem nibh id elit. Duis sed dapibus leo nec ornare dui.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Work -->
+        <section class="work" id="work">
+            <div class="container">
+                <h2>My Work</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="work-item">
+                            <img src="img/work-1.jpg" alt="work-1">
+                            <h3>Project 1</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="work-item">
+                            <img src="img/work-2.jpg" alt="work-2">
+                            <h3>Project 2</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="work-item">
+                            <img src="img/work-3.jpg" alt="work-3">
+                            <h3>Project 3</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="work-item">
+                            <img src="img/work-4.jpg" alt="work-4">
+                            <h3>Project 4</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="work-item">
+                            <img src="img/work-5.jpg" alt="work-5">
+                            <h3>Project 5</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="work-item">
+                            <img src="/images/Fav_icon.png" alt="work-6">
+                            <h3>Project 6</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Contact Me</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Feel free to contact me with any questions or comments you may have:</p>
+                        <ul>
+                            <li>Email: me@example.com</li>
+                            <li>Phone: (123) 456-7890</li>
+                            <li>Address: 123 Main St, Anytown USA 12345</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <form class="contact-form">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>Copyright &copy; 2023 | All Rights Reserved</p>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="social-icons">
+                            <!-- <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-github"></i></a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+
+</html>

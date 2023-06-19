@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Teckniska</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arvo|Lato:400,700">
+    <link rel="stylesheet" href="styleSheet/login.css" type="text/css">
+    <script type="text/javascript" src="jsscript/jquery.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/jsscript/TextEditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/theme-tomorrow.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-scss.js"></script>
+    <link rel="stylesheet" href="/styleSheet/TextEditor.css" type="text/css" />
+
+    <link rel="icon" href="/images/Fav_icon.png" sizes="32x32">
+    <link rel="icon" href="/images/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="https://wpforms.com/wp-content/uploads/2016/02/cropped-sullie-favicon-180x180.png">
+</head>
+
+<body>
+    <div style="display:block;overflow: hidden;" class="container">
+        <fieldset>
+            <div style="display: inline-block;">
+                <h1 style="margin: 2px 2px;">Question</h1>
+            </div>
+            <label>Theme:
+    <select  id="ace-theme" size="1">
+      <optgroup label="bright">
+        <option value="chrome">chrome</option>
+        <option value="clouds">clouds</option>
+        <option value="crimson_editor">crimson_editor</option>
+        <option value="dawn">dawn</option>
+        <option value="dreamweaver">dreamweaver</option>
+        <option value="eclipse">eclipse</option>
+        <option value="github">github</option>
+        <option value="solarized_light">solarized_light</option>
+        <option value="textmate">textmate</option>
+        <option value="tomorrow" selected="">tomorrow</option>
+        <option value="xcode">xcode</option>
+      </optgroup>
+      <optgroup label="dark">
+        <option value="clouds_midnight">clouds_midnight</option>
+        <option value="cobalt">cobalt</option>
+        <option value="idle_fingers">idle_fingers</option>
+        <option value="kr_theme">kr_theme</option>
+        <option value="merbivore">merbivore</option>
+        <option value="merbivore_soft">merbivore_soft</option>
+        <option value="mono_industrial">mono_industrial</option>
+        <option value="monokai">monokai</option>
+        <option value="pastel_on_dark">pastel_on_dark</option>
+        <option value="solarized_dark">solarized_dark</option>
+        <option value="terminal">terminal</option>
+        <option value="tomorrow_night">tomorrow_night</option>
+        <option value="tomorrow_night_blue">tomorrow_night_blue</option>
+        <option value="tomorrow_night_bright">tomorrow_night_bright</option>
+        <option value="tomorrow_night_eighties">
+          tomorrow_night_eighties
+        </option>
+        <option value="twilight">twilight</option>
+        <option value="vibrant_ink">vibrant_ink</option>
+      </optgroup>
+    </select>
+  </label>
+
+            <label>Mode:
+    <select id="ace-mode">
+      <option value="C/C++">C/C++</option>
+      <option value="C#">C#</option>
+      <option value="CSS">CSS</option>
+      <option value="Go">Go</option>
+      <option value="HTML">HTML</option>
+      <option value="Java">Java</option>
+      <option value="JavaScript">JavaScript</option>
+      <option value="JSON">JSON</option>
+      <option value="MySQL">MySQL</option>
+      <option value="Objective-C">Objective-C</option>
+      <option value="Plain Text">Plain Text</option>
+      <option value="Python">Python</option>
+      <option value="R">R</option>
+      <option value="Ruby">Ruby</option>
+      <option value="SQL">SQL</option>
+    </select>
+  </label>
+        </fieldset>
+        
+        <div  class="column-wrap">
+
+            <div style="height: 95%;display: block;" class="column-left1" >
+
+                <div style="height: 0px;" class="inner">
+                    <div style="overflow: auto;">
+                        <p class="footer">
+                            <pre>
+    Roman to Integer 
+    
+    Roman numerals are represented by seven 
+    different symbols: I, V, X, L, C, D and M.
+    
+    Symbol       Value
+    I             1
+    V             5
+    X             10
+    L             50
+    C             100
+    D             500
+    M             1000
+    
+    
+    <p > 
+    For example, 2 is written as II in Roman numeral, just two ones added together. 12 is written as XII, which is simply X + II. The number 27 is written as XXVII, which is XX + V + II.Roman numerals are usually written largest to smallest from left to right.However, the numeral for four is not IIII. Instead, the number four is written as IV.Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as IX.There are six instances where subtraction is used:
+    </p>
+                    
+                    
+
+
+                        </pre>
+                    </p>
+                </div>
+                </div>
+                <p class="forgot">
+                    <button onclick="submit()">submit</button>
+                </p>
+            </div>
+
+            <div class="column-right" style="background-image:url('images/mainImage.jpg');display: block;">
+                <div class="wrapper1" style="height: 90%;">
+                    <code id="ace-editorid" class="ace_editor ace-tomorrow"></code>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+<script id="rendered-js">
+    //cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js
+    var theme = "ace/theme/tomorrow";
+    var mode = "ace/mode/scss";
+    var editor = ace.edit("ace-editorid");
+    editor.setTheme(theme);
+    editor.getSession().setMode(mode);
+    // editor.renderer.setShowGutter(false);
+
+    $("#ace-mode").on("change", function() {
+        editor.getSession().setMode("ace/mode/" + $(this).val().toLowerCase());
+    });
+    $("#ace-theme").on("change", function() {
+        editor.setTheme("ace/theme/" + $(this).val().toLowerCase());
+    });
+    //# sourceURL=pen.js
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+<script src="/jsscript/TextEditor.js"></script>
+
+</html>
